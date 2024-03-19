@@ -1,0 +1,36 @@
+a)
+Los algoritmos de clustering, como K-means, tienen varios hiperparámetros que pueden ajustarse para obtener resultados óptimos. Algunos de los hiperparámetros más importantes de K-means incluyen:
+
+n_clusters: Este es el número de clusters que deseas identificar en tus datos. Es importante elegir un valor adecuado para este hiperparámetro, ya que puede afectar significativamente la estructura de los clusters.
+
+init: Este parámetro determina cómo se inicializan los centroides en el algoritmo K-means. Puede ser "k-means++", que es una inicialización inteligente que intenta colocar los centroides de manera estratégica para acelerar la convergencia, o "random", que inicializa los centroides de manera aleatoria.
+
+n_init: Es el número de veces que se ejecutará el algoritmo K-means con diferentes centroides iniciales. Esto ayuda a mitigar el impacto de la inicialización aleatoria y permite obtener resultados más estables. Por defecto, se establece en 10.
+
+max_iter: Este parámetro controla el número máximo de iteraciones que el algoritmo K-means ejecutará en cada ejecución. Si los centroides aún están cambiando después de alcanzar este número de iteraciones, el algoritmo se detendrá. El valor predeterminado es 300.
+
+tol: Es una tolerancia que controla la convergencia del algoritmo. Si la suma de las distancias cuadradas de los puntos a sus centroides más cercanos no cambia en más que el valor de tol, se considera que el algoritmo ha convergido y se detiene.
+
+algorithm: Determina la variante del algoritmo K-means que se utilizará. Puede ser "auto", "full", "elkan". "auto" selecciona automáticamente el algoritmo más adecuado basado en los datos.
+
+random_state: Controla la semilla utilizada por el generador de números aleatorios para reproducibilidad.
+
+De principio, mediante simple inspeccion podemos suponer que el valor del Hiperparametro de nro de cluster puede ser K=2 o K=3
+
+b)
+Matriz de pertenencia (estado inicial):
+CENTROIDES INICIALES = (2, 3) ; (6, 6)
+DATOS:	   (1.0, 2.0)  (1.5, 2.0)  (2.0, 3.0)  (4.5, 4.0)  (5.5, 6.0)  (6.0, 4.5)  (6.0, 6.0)  (5.0, 7.0)
+Cluster 1: [	1	   1	  	1	   0 		0	    0		0	   0]
+Cluster 2: [	0	   0	 	0	   1 		1 	    1		1	   1]
+
+d) Una manera de encontrar un agrupamiento de buena calidad es analizando los siguientes metodos:
+Métodos de silhouette: Utiliza métodos como el "método del codo" o el coeficiente de silueta para determinar la cantidad óptima de clusters. El método del codo implica trazar la suma de las distancias cuadradas intra-cluster en función del número de clusters y buscar el punto donde la curva comienza a aplanarse (el "codo"). El coeficiente de silueta mide qué tan bien están separados los clusters y varía de -1 a 1, donde valores más altos indican una mejor separación.
+
+Índice de Davies-Bouldin: Este es otro índice de validación interna que mide la "bondad" de la agrupación. Calcula la similaridad promedio entre cada cluster y su cluster más similar, donde valores más bajos indican una mejor separación entre clusters.
+
+e)Segun los resultados obtenidos estan bien definidos los 2 grupos, aunque existe un valor que podría llegar a considerarse como un tercer centro de cluster
+
+f)
+En la funcion objetivo de Kmeans lo que busca es minimizar la suma de las distancias de todos los datos a su centro de cluster perteneciente (Con el que menor distancia euclidea tenga).
+Mientras que la funcion de Fuzzy_cmeans lo que busca es buscar el porcentaje de pertenencia del dato en cuestion contra todos los centros de clusters
