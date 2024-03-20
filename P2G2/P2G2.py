@@ -13,7 +13,7 @@ from sklearn.cluster import KMeans
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv('C:\\Users\\asusx\\OneDrive\\Escritorio\\Inteligencia_Computacional\\kmeansdata.txt',delimiter='\t',names=["Set_1","Set_2","Set_3","Set_4"])
+df = pd.read_csv('C:\\kmeansdata.txt',delimiter='\t',names=["Set_1","Set_2","Set_3","Set_4"])
 print(df.head())
 # sns.pairplot(data=df);
 
