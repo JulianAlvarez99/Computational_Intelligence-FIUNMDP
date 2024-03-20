@@ -48,7 +48,7 @@ class KMeans:
 
 # Generar datos de ejemplo
 np.random.seed(0)
-df = pd.read_csv('C:\\Users\\julia\\Desktop\\Inteligencia_computacional\\P2G2\\kmeansdata.txt',delimiter='\t',names=["Set_1","Set_2","Set_3","Set_4"])
+df = pd.read_csv('\\kmeansdata.txt',delimiter='\t',names=["Set_1","Set_2","Set_3","Set_4"])
 print(df.head())
 #sns.pairplot(data=df);
 
